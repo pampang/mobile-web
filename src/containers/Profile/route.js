@@ -2,30 +2,23 @@
 * @Author: PAMPANG
 * @Date:   2016-09-13 10:01:01
 * @Last Modified by:   PAMPANG
-* @Last Modified time: 2016-09-13 14:29:16
+* @Last Modified time: 2016-09-13 16:00:25
 */
 
 'use strict';
 import { injectReducer } from '../../store/reducers';
 import Profile from './Profile';
+import reducer from './reducer/reducer';
 
 export default (store) => {
   return {
     path : 'profile',
     /*  Async getComponent is only invoked when route matches   */
     getComponent (nextState, cb) {
-      /*  Webpack - use 'require.ensure' to create a split point
-          and embed an async module loader (jsonp) when bundling   */
-      require.ensure([], (require) => {
-        // state, action, reducer
-        const reducer = require('./reducer/reducer').default;
-        injectReducer(store, { key: 'profile', reducer })
-
-        /*  Return getComponent   */
-        cb(null, Profile)
-
-      /* Webpack named bundle   */
-      }, 'profile')
+      // 当组件被初始化的时候，才将当前的reducer加载到store中，
+      // 实现按需加载。
+      injectReducer(store, { key: 'profile', reducer });
+      cb(null, Profile);
     }
   }
 }
