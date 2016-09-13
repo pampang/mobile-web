@@ -1,0 +1,228 @@
+.pageProfile {
+  background-color: #f5f5f5;
+}
+
+.profile {
+  padding-bottom: 2rem;
+}
+
+// 顶部用户信息区域（紫色背景区域）
+.descInfo {
+  background-color: #41256d;
+  padding-bottom: 1.3rem;
+}
+.avatar {
+  text-align: center;
+  padding-top: 1px;
+}
+.avatarImg {
+  display: block;
+  margin: 4rem auto 0.76rem;
+  width: 5.53rem;
+  height: 5.53rem;
+  border-radius: 5.53rem;
+  // background-image: url('../../assets/img/default-avatar.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.avatarText {
+  text-align: center;
+}
+.avatarName {
+  color: #fff;
+  font-size: 1.333rem;
+}
+.avatarPhone {
+  color: #897e9e;
+  font-size: 1rem;
+  margin-top: 0.71rem;
+}
+.limit {
+  display: table;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.6rem;
+}
+.canUse {
+  display: table-cell;
+}
+.canUseText {
+  font-size: 0.98rem;
+  color: #645681;
+}
+.canUseNumber {
+  font-size: 2.22rem;
+  color: #fff5c6;
+  margin-top: 1.06rem;
+}
+.used {
+  display: table-cell;
+}
+.usedText {
+  font-size: 0.98rem;
+  color: #72648c;
+}
+.usedNumber {
+  font-size: 2.22rem;
+  color: #9c94ac;
+  margin-top: 1.06rem;
+}
+.limitGap {
+  display: table-cell;
+  width: 1px;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 1px;
+    height: 2.8rem;
+    background-color: #614d83;
+    position: absolute;
+    margin-top: 0.51rem;
+  }
+}
+
+// 认证区域
+.auth {
+  text-align: center;
+  color: #999;
+  padding-top: 1.33rem;
+  background-color: #fff;
+}
+.authTitle {
+  font-size: 1.156rem;
+  margin-bottom: 1.78rem;
+  margin-top: 0;
+}
+.authImgs {
+  display: flex;
+  display: -webkit-flex;
+}
+.authRealNameImg {
+  flex: 1;
+  -webkit-flex: 1;
+  text-align: right;
+  padding-right: 4rem;
+}
+.authUnionpayImg {
+  flex: 1;
+  -webkit-flex: 1;
+  text-align: left;
+  padding-left: 4rem;
+}
+.authItem {
+  text-align: center;
+  display: inline-block;
+}
+.authRealName {
+  display: inline-block;
+  width: 3.2rem;
+  height: 4.09rem;
+  // background-image: url(../../assets/img/realname-auth.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.authRealNameText {
+  margin: 0.88rem 0 1.46rem;
+  text-align: right;
+}
+.authUnionpay {
+  display: inline-block;
+  width: 3.2rem;
+  height: 4.09rem;
+  // background-image: url(../../assets/img/unionpay-auth.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: left;
+}
+.authUnionpayText {
+  margin: 0.88rem 0 1.46rem;
+  text-align: left;
+}
+
+// 操作块
+.operateList {
+  background-color: #fff;
+  margin: 1.333rem 0;
+}
+.operateItem {
+  display: table;
+  width: 100%;
+  height: 3.8rem;
+  padding-bottom: 1px;
+
+  &:last-child .operateTitle:after {
+    display: none;
+  }
+}
+.logoutItem {
+  text-align: center;
+
+  .operateTitle {
+    color: #ff3333;
+  }
+}
+.operateIcon {
+  width: 5.3rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+.operateTitle {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.24rem;
+  color: #666;
+  position: relative;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #dfdfdf;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.icon {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  float: right;
+  margin-right: 1.78rem;
+}
+// .iconOrder {
+//   .icon;
+  // background-image: url(../../assets/img/icon-order.png);
+//   width: 1.24rem;
+//   height: 1.68rem;
+// }
+// .iconQuestion {
+//   .icon;
+  // background-image: url(../../assets/img/icon-question.png);
+//   width: 1.42rem;
+//   height: 1.68rem;
+// }
+// .iconCoupon {
+//   .icon;
+  // background-image: url(../../assets/img/icon-coupon.png);
+//   width: 1.24rem;
+//   height: 1.68rem;
+// }
+.iconArrow {
+  display: block;
+  width: 0.76rem;
+  height: 0.76rem;
+  border-top: solid 1px #d9d9d9;
+  border-right: solid 1px #d9d9d9;
+  float: right;
+  transform: rotate(45deg);
+  margin-right: 1.42rem;
+  margin-top: 0.25rem;
+}

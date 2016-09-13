@@ -22,21 +22,10 @@ import {
 // ------------------------------------
 // Actions
 // ------------------------------------
-export const increment = (value = 1) => {
+export function increment (value = 1) {
   return {
     type    : COUNTER_INCREMENT,
     payload : value
-  }
-}
-
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch(increment(getState().counter))
-        resolve()
-      }, 200)
-    })
   }
 }
 
