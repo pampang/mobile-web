@@ -1,12 +1,12 @@
 {
   "config": {
     "env": "local",
-    "name": "react-redux-starter-kit",
-    "keys": "f6f2e2475f68ec963d71470b2413e3c6.react-redux-starter-kit",
+    "name": "mall-mobile-web",
+    "keys": "209e73a8c6f4565ac59d7445114eb09c.mall-mobile-web",
     "protocolHeaders": "X-Forwarded-Proto, X-Client-Scheme, X-Forwarded-By-Spanner",
     "pkg": {
-      "name": "react-redux-starter-kit",
-      "version": "3.0.0-alpha.2",
+      "name": "mall-mobile-web",
+      "version": "1.0.0",
       "description": "Get started with React, Redux, and React-Router!",
       "main": "index.js",
       "engines": {
@@ -15,6 +15,7 @@
       },
       "scripts": {
         "dev1": "cross-env NODE_ENV=local webpack-dev-server --inline --hot --progress",
+        "build1": "cross-env NODE_ENV=production webpack -p --progress",
         "clean": "rimraf dist",
         "compile": "better-npm-run compile",
         "lint": "eslint bin build config server src tests",
@@ -200,7 +201,7 @@
       "consoleLevel": "INFO",
       "outputJSON": false,
       "buffer": false,
-      "appLogName": "react-redux-starter-kit-web.log",
+      "appLogName": "mall-mobile-web-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
