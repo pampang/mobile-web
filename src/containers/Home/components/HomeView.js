@@ -8,7 +8,7 @@ export const HomeView = () => (
     <img
       alt='This is a duck, because Redux!'
       className={classes.duck}
-      src={DuckImage} />
+      src={require('../assets/Duck.jpg')} />
   </div>
 )
 
