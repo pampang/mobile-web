@@ -14,9 +14,9 @@ const webpackConfig = {
   name    : 'client',
   target  : 'web',
   devtool : config.compiler_devtool,
-  resolve : {
+  resolve : {   // 请求重定向，显示指出依赖查找路径
     root       : paths.client(),
-    extensions : ['', '.js', '.jsx', '.json']
+    extensions : ['', '.js', '.jsx', '.json', 'scss']
   },
   module : {}
 }
@@ -38,10 +38,11 @@ webpackConfig.entry = {
 // Bundle Output
 // ------------------------------------
 webpackConfig.output = {
-  filename   : `[name].[${config.compiler_hash_type}].js`,
+  filename   : `[name].[hash:8].js`,
   path       : paths.dist(),
-  // 去掉根目录的路径索引
-  // publicPath : config.compiler_public_path
+  // 输出文件的路径索引
+  // 例如输出的js, css都会带有这个路径
+  publicPath : config.compiler_public_path
 }
 
 // ------------------------------------
@@ -236,13 +237,20 @@ webpackConfig.postcss = [
 // File loaders
 /* eslint-disable */
 webpackConfig.module.loaders.push(
-  { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
-  { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
-  { test: /\.otf(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype' },
-  { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
-  { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
-  { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
-  { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
+  // { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
+  // { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },
+  // { test: /\.otf(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=font/opentype' },
+  // { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream' },
+  // { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=[path][name].[ext]' },
+  // { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml' },
+  // { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
+  { test: /\.woff(\?.*)?$/,  loader: 'url?prefix=fonts/&name=assets/font/[name].[ext]&limit=10000&mimetype=application/font-woff' },
+  { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=assets/font/[name].[ext]&limit=10000&mimetype=application/font-woff2' },
+  { test: /\.otf(\?.*)?$/,   loader: 'file?prefix=fonts/&name=assets/font/[name].[ext]&limit=10000&mimetype=font/opentype' },
+  { test: /\.ttf(\?.*)?$/,   loader: 'url?prefix=fonts/&name=assets/font/[name].[ext]&limit=10000&mimetype=application/octet-stream' },
+  { test: /\.eot(\?.*)?$/,   loader: 'file?prefix=fonts/&name=assets/font/[name].[ext]' },
+  // { test: /\.svg(\?.*)?$/,   loader: 'url?prefix=fonts/&name=assets/images/[name].[ext]&limit=10000&mimetype=image/svg+xml' },
+  { test: /\.(png|jp(e)?g|gif|svg)$/,    loader: 'file?&name=assets/images/[name].[hash:8].[ext]' }
 )
 /* eslint-enable */
 
@@ -263,7 +271,7 @@ if (!__DEV__) {
   })
 
   webpackConfig.plugins.push(
-    new ExtractTextPlugin('[name].[contenthash].css', {
+    new ExtractTextPlugin('[name].[hash:8].css', {
       allChunks : true
     })
   )
