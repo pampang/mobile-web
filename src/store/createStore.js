@@ -1,13 +1,14 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
-import thunk from 'redux-thunk'
+import { routerMiddleware } from 'react-router-redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
 import makeRootReducer from './reducers'
 
 export default (initialState = {}, history) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk, routerMiddleware(history)]
+  const middleware = [thunk, routerMiddleware(history), createLogger()]
 
   // ======================================================
   // Store Enhancers
