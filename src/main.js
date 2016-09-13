@@ -4,8 +4,9 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import { useRouterHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import createStore from './store/createStore'
-import AppContainer from './appContainers/AppContainer'
 import routes from './routes';
+import { Router } from 'react-router'
+import { Provider } from 'react-redux'
 
 // ========================================================
 // Browser History Setup
@@ -45,11 +46,11 @@ let render = () => {
   // const routes = routes(store)
 
   ReactDOM.render(
-    <AppContainer
-      store={store}
-      history={history}
-      routes={routes(store)}
-    />,
+    <Provider store={store}>
+      <div style={{ height: '100%' }}>
+        <Router history={history} children={routes(store)} />
+      </div>
+    </Provider>,
     MOUNT_NODE
   )
 }

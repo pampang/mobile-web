@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import classes from './Counter.scss'
 import { connect } from 'react-redux'
-import { increment, doubleAsync } from './actions'
+import { increment, doubleAsync } from './reducer/actions'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
